@@ -368,8 +368,8 @@
         // ============================================
         // КОНФИГУРАЦИЯ - ЗАМЕНИ НА СВОИ ЗНАЧЕНИЯ!
         // ============================================
-        const SUPABASE_URL = 'https://vdduyndldbetdhwtilks.supabase.co';           // например: https://xxxxx.supabase.co
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkZHV5bmRsZGJldGRod3RpbGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NzgwMTIsImV4cCI6MjA4MTU1NDAxMn0.t-4OESW1AtI9GRJEbxGAV8SYIoOrIyZs6NVghwwU4UE" TELEGRAM_BOT_TOKEN = "8335389203:AAEnlOGha8yx8yu5ds9JtH3OTHtqfjFRBOs'; // публичный anon key
+        const SUPABASE_URL = 'YOUR_SUPABASE_URL';           // например: https://xxxxx.supabase.co
+        const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY'; // публичный anon key
         
         // Google Calendar URL
         const CALENDAR_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Q1BiHUkIBYZ69cKODCZY3-3ALBK-ZLcKSDa93d-uH9Ef_CopjzEssV8eA1VWFM86umATJGueu?gv=true';
@@ -380,7 +380,7 @@
         let supabase = null;
         
         // Инициализируем Supabase только если ключи заданы
-        if (SUPABASE_URL !== 'https://vdduyndldbetdhwtilks.supabase.co' && SUPABASE_ANON_KEY !== 'YeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkZHV5bmRsZGJldGRod3RpbGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NzgwMTIsImV4cCI6MjA4MTU1NDAxMn0.t-4OESW1AtI9GRJEbxGAV8SYIoOrIyZs6NVghwwU4UE') {
+        if (SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY') {
             supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         }
         
