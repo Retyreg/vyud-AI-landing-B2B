@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
     
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -30,6 +31,7 @@
             --accent-cyan-dim: rgba(0, 212, 255, 0.15);
             --accent-emerald: #10b981;
             --accent-amber: #f59e0b;
+            --accent-red: #ef4444;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
@@ -47,16 +49,12 @@
         h3 { font-size: 1.5rem; }
         p { color: var(--text-secondary); font-size: 1.1rem; }
         .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-
-        /* HEADER */
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(10, 11, 15, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); text-decoration: none; letter-spacing: -0.03em; }
         .logo span { color: var(--accent-cyan); }
         .header-cta { background: var(--accent-cyan); color: var(--bg-deep); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
         .header-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3); }
-
-        /* HERO */
         .hero { padding: 160px 0 100px; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(0, 212, 255, 0.12) 0%, transparent 70%); pointer-events: none; }
         .hero-content { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
@@ -71,8 +69,6 @@
         .btn-secondary:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
         .hero-micro { font-size: 0.95rem; color: var(--text-muted); }
         .hero-micro strong { color: var(--accent-cyan); }
-
-        /* PAIN STATS */
         .pain-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 50%, var(--bg-deep) 100%); }
         .pain-header { text-align: center; max-width: 800px; margin: 0 auto 60px; }
         .pain-header h2 { margin-bottom: 16px; }
@@ -85,8 +81,6 @@
         .pain-insight { text-align: center; margin-top: 48px; padding: 24px; background: var(--accent-cyan-dim); border: 1px solid var(--border-accent); border-radius: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
         .pain-insight p { color: var(--text-primary); font-size: 1.15rem; margin: 0; }
         .pain-insight strong { color: var(--accent-cyan); }
-
-        /* HOW IT WORKS */
         .how-section { padding: 100px 0; }
         .how-header { text-align: center; margin-bottom: 60px; }
         .how-header h2 { margin-bottom: 16px; }
@@ -100,8 +94,6 @@
         .video-wrapper { position: relative; padding-bottom: 56.25%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: 0 32px 64px rgba(0, 0, 0, 0.4); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-caption { text-align: center; margin-top: 16px; font-size: 0.95rem; color: var(--text-muted); }
-
-        /* PILOT */
         .pilot-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(139, 92, 246, 0.05) 50%, var(--bg-deep) 100%); }
         .pilot-container { max-width: 900px; margin: 0 auto; }
         .pilot-header { text-align: center; margin-bottom: 48px; }
@@ -116,8 +108,6 @@
         .pilot-guarantee-icon { font-size: 1.5rem; }
         .pilot-guarantee p { margin: 0; color: var(--text-primary); font-size: 1rem; }
         .pilot-guarantee strong { color: var(--accent-amber); }
-
-        /* CASES */
         .cases-section { padding: 100px 0; }
         .cases-header { text-align: center; margin-bottom: 60px; }
         .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -127,45 +117,58 @@
         .case-metric { font-size: 2.5rem; font-weight: 800; color: var(--accent-emerald); margin-bottom: 8px; font-family: var(--font-mono); }
         .case-desc { font-size: 1rem; color: var(--text-secondary); margin-bottom: 20px; flex-grow: 1; }
         .case-quote { font-style: italic; font-size: 0.95rem; color: var(--text-primary); padding-top: 16px; border-top: 1px solid var(--border-subtle); }
-
-        /* DEMO FORM */
         .demo-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 100%); }
         .demo-container { max-width: 640px; margin: 0 auto; text-align: center; }
         .demo-header { margin-bottom: 40px; }
         .demo-header h2 { margin-bottom: 16px; }
-        .demo-form { background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 40px; text-align: left; }
+        .demo-form { background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 40px; text-align: left; transition: opacity 0.3s, transform 0.3s; }
+        .demo-form.hiding { opacity: 0; transform: translateY(-20px); }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
         .form-group { margin-bottom: 16px; }
         .form-group label { display: block; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; }
         .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; color: var(--text-primary); font-family: var(--font-main); font-size: 1rem; transition: all 0.2s; }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 0 3px var(--accent-cyan-dim); }
         .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-muted); }
+        .form-group input.error, .form-group select.error { border-color: var(--accent-red); }
         .form-group textarea { min-height: 100px; resize: vertical; }
         .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
         .form-consent { display: flex; align-items: flex-start; gap: 12px; margin: 24px 0; }
         .form-consent input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent-cyan); cursor: pointer; }
         .form-consent label { font-size: 0.9rem; color: var(--text-secondary); cursor: pointer; }
-        .form-submit { width: 100%; padding: 18px; background: var(--accent-cyan); color: var(--bg-deep); border: none; border-radius: 12px; font-family: var(--font-main); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.25s; }
-        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0, 212, 255, 0.35); }
+        .form-submit { width: 100%; padding: 18px; background: var(--accent-cyan); color: var(--bg-deep); border: none; border-radius: 12px; font-family: var(--font-main); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.25s; position: relative; }
+        .form-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0, 212, 255, 0.35); }
+        .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+        .form-submit.loading { color: transparent; }
+        .form-submit.loading::after { content: ''; position: absolute; width: 24px; height: 24px; top: 50%; left: 50%; margin-left: -12px; margin-top: -12px; border: 3px solid var(--bg-deep); border-radius: 50%; border-top-color: transparent; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
         .form-note { text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
-        
-        /* Success message */
-        .form-success { display: none; text-align: center; padding: 40px 20px; }
+        .form-error { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; color: var(--accent-red); font-size: 0.9rem; display: none; }
+        .form-error.show { display: block; }
+        .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; z-index: -1; }
+        .form-success { display: none; text-align: center; padding: 40px 20px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 20px; animation: fadeIn 0.4s ease-out; }
         .form-success.show { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         .form-success h3 { color: var(--accent-emerald); margin-bottom: 16px; font-size: 1.5rem; }
         .form-success p { margin-bottom: 24px; }
-        .btn-calendar { display: inline-flex; align-items: center; gap: 12px; background: var(--accent-cyan); color: var(--bg-deep); padding: 18px 36px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.25s; }
-        .btn-calendar:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0, 212, 255, 0.35); }
-
-        /* BOT CTA */
+        .form-success .step-indicator { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .form-success .step-indicator .step { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        .form-success .step-indicator .step.done { color: var(--accent-emerald); }
+        .form-success .step-indicator .step.active { color: var(--accent-cyan); }
+        .form-success .step-indicator .divider { width: 40px; height: 2px; background: var(--border-subtle); }
+        .calendar-container { margin: 24px 0; padding: 24px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-accent); }
+        .calendar-container h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 16px; }
+        .calendar-container p { font-size: 0.95rem; margin-bottom: 20px; }
+        #google-calendar-button { display: flex; justify-content: center; min-height: 50px; }
+        .success-footer { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+        .success-footer p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+        .success-footer a { color: var(--accent-cyan); text-decoration: none; }
+        .success-footer a:hover { text-decoration: underline; }
         .bot-cta-section { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border-subtle); }
         .bot-cta-content { max-width: 700px; margin: 0 auto; text-align: center; }
         .bot-cta-content h3 { font-size: 1.75rem; margin-bottom: 16px; }
         .bot-cta-content p { margin-bottom: 24px; }
         .btn-telegram { display: inline-flex; align-items: center; gap: 10px; background: #0088cc; color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.05rem; transition: all 0.25s; }
         .btn-telegram:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0, 136, 204, 0.35); }
-
-        /* FOOTER */
         .footer { background: var(--bg-deep); border-top: 1px solid var(--border-subtle); padding: 60px 0 30px; }
         .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border-subtle); }
         .footer-brand h3 { font-size: 1.5rem; margin-bottom: 8px; }
@@ -187,8 +190,6 @@
         .legal-note { font-size: 0.75rem; }
         .legal-note a { color: var(--text-muted); }
         .legal-note a:hover { color: var(--accent-cyan); }
-
-        /* RESPONSIVE */
         @media (max-width: 992px) { .stats-grid, .steps-container, .cases-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; } }
         @media (max-width: 768px) { .header-cta { display: none; } .hero { padding: 120px 0 60px; } .hero-cta-row { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } .form-row { grid-template-columns: 1fr; } .footer-main { flex-direction: column; } .footer-links { flex-direction: column; gap: 30px; } .footer-legal { flex-direction: column; text-align: center; } .legal-copyright { text-align: center; } }
     </style>
@@ -282,9 +283,14 @@
             <div class="demo-container">
                 <div class="demo-header"><h2>Готовы проверить на своём документе?</h2><p>Забронируйте 15-минутную демо-сессию. Присылайте PDF заранее — покажем тест на ваших данных.</p></div>
                 
-                <form id="lead-form" class="demo-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                    <input type="hidden" name="_subject" value="Новая заявка на демо VYUD AI (B2B)">
-                    <input type="hidden" name="_next" value="#success">
+                <form id="lead-form" class="demo-form">
+                    <div id="form-error" class="form-error"></div>
+                    
+                    <!-- Honeypot поле - скрыто от пользователей, но боты его заполняют -->
+                    <div class="hp-field">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
                     
                     <div class="form-row">
                         <div class="form-group"><label for="name">Имя и фамилия *</label><input type="text" id="name" name="name" required placeholder="Иван Петров"></div>
@@ -297,17 +303,29 @@
                     </div>
                     <div class="form-group"><label for="document">Какой документ хотите превратить в тест?</label><textarea id="document" name="document" placeholder="Например: СОП по работе с возражениями, инструкция по кассе, правила пожарной безопасности..."></textarea></div>
                     <div class="form-consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">Согласен на 15-минутную демо-сессию с экспертом VYUD AI</label></div>
-                    <button type="submit" class="form-submit">📅 Отправить заявку</button>
+                    <button type="submit" class="form-submit" id="submit-btn">📅 Отправить заявку</button>
                     <p class="form-note">Мы не продаём без демо. Ваш документ не будет использован без разрешения.</p>
                 </form>
 
                 <div id="success" class="form-success">
                     <h3>✅ Заявка отправлена!</h3>
-                    <p>Осталось выбрать удобное время для 15-минутной демо-сессии:</p>
-                    <a href="https://calendar.app.google/KowMAoXz27hsTk1E6" target="_blank" class="btn-calendar" onclick="ym(106277227,'reachGoal','click_calendar')">
-                        📅 Выбрать время в календаре
-                    </a>
-                    <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">После выбора слота вы получите приглашение на почту.</p>
+                    
+                    <div class="step-indicator">
+                        <div class="step done"><span>✓</span> Заявка принята</div>
+                        <div class="divider"></div>
+                        <div class="step active"><span>2</span> Выберите время</div>
+                    </div>
+                    
+                    <div class="calendar-container">
+                        <h4>📅 Выберите удобное время для демо</h4>
+                        <p>Нажмите кнопку ниже, чтобы забронировать слот в календаре:</p>
+                        <div id="google-calendar-button"></div>
+                    </div>
+                    
+                    <div class="success-footer">
+                        <p>После выбора слота вы получите приглашение на почту.<br>
+                        Не нашли подходящее время? <a href="https://t.me/vyud_ai" target="_blank">Напишите нам в Telegram</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -340,33 +358,181 @@
         </div>
     </footer>
 
+    <!-- Google Calendar Scheduling Script -->
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
     <script>
-        // Handle form submission and show success message
+        // ============================================
+        // КОНФИГУРАЦИЯ - ЗАМЕНИ НА СВОИ ЗНАЧЕНИЯ!
+        // ============================================
+        const SUPABASE_URL = 'https://vdduyndldbetdhwtilks.supabase.co';           // например: https://xxxxx.supabase.co
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkZHV5bmRsZGJldGRod3RpbGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NzgwMTIsImV4cCI6MjA4MTU1NDAxMn0.t-4OESW1AtI9GRJEbxGAV8SYIoOrIyZs6NVghwwU4UE" TELEGRAM_BOT_TOKEN = "8335389203:AAEnlOGha8yx8yu5ds9JtH3OTHtqfjFRBOs'; // публичный anon key
+        
+        // Google Calendar URL
+        const CALENDAR_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Q1BiHUkIBYZ69cKODCZY3-3ALBK-ZLcKSDa93d-uH9Ef_CopjzEssV8eA1VWFM86umATJGueu?gv=true';
+        
+        // ============================================
+        // ИНИЦИАЛИЗАЦИЯ
+        // ============================================
+        let supabase = null;
+        
+        // Инициализируем Supabase только если ключи заданы
+        if (SUPABASE_URL !== 'https://vdduyndldbetdhwtilks.supabase.co' && SUPABASE_ANON_KEY !== 'YeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkZHV5bmRsZGJldGRod3RpbGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NzgwMTIsImV4cCI6MjA4MTU1NDAxMn0.t-4OESW1AtI9GRJEbxGAV8SYIoOrIyZs6NVghwwU4UE') {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
+        
+        // Инициализируем Google Calendar кнопку после загрузки
+        window.addEventListener('load', function() {
+            if (typeof calendar !== 'undefined' && calendar.schedulingButton) {
+                calendar.schedulingButton.load({
+                    url: CALENDAR_URL,
+                    color: '#00d4ff',
+                    label: 'Выбрать время в календаре',
+                    target: document.getElementById('google-calendar-button'),
+                });
+            }
+        });
+        
+        // ============================================
+        // ФОРМА
+        // ============================================
         const form = document.getElementById('lead-form');
         const successBlock = document.getElementById('success');
+        const submitBtn = document.getElementById('submit-btn');
+        const formError = document.getElementById('form-error');
         
-        form.addEventListener('submit', function(e) {
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function isValidPhone(phone) {
+            return phone.replace(/\D/g, '').length >= 10;
+        }
+        
+        function showError(message) {
+            formError.textContent = message;
+            formError.classList.add('show');
+            formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        function hideError() {
+            formError.classList.remove('show');
+        }
+        
+        async function saveToSupabase(data) {
+            if (!supabase) {
+                console.warn('Supabase не настроен, данные не сохранены в БД');
+                return { success: true, fallback: true };
+            }
+            
+            const { error } = await supabase
+                .from('leads')
+                .insert([{
+                    name: data.name,
+                    email: data.email,
+                    phone: data.phone,
+                    company_size: data.company_size,
+                    role: data.role,
+                    document: data.document,
+                    source: 'vyud.tech'
+                }]);
+            
+            if (error) {
+                console.error('Supabase error:', error);
+                return { success: false, error: error.message };
+            }
+            
+            return { success: true };
+        }
+        
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
+            hideError();
             
-            const formData = new FormData(form);
+            // Проверяем honeypot
+            const honeypot = document.getElementById('website').value;
+            if (honeypot) {
+                console.log('Bot detected');
+                showSuccess();
+                return;
+            }
             
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            })
-            .then(response => {
-                if (response.ok) {
-                    ym(106277227, 'reachGoal', 'submit_demo_form');
-                    form.style.display = 'none';
-                    successBlock.classList.add('show');
-                    document.getElementById('demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    alert('Ошибка отправки. Попробуйте ещё раз или напишите нам в Telegram.');
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                company_size: document.getElementById('company_size').value,
+                role: document.getElementById('role').value,
+                document: document.getElementById('document').value.trim()
+            };
+            
+            // Валидация
+            if (!formData.name || formData.name.length < 2) {
+                showError('Пожалуйста, введите ваше имя');
+                document.getElementById('name').classList.add('error');
+                return;
+            }
+            
+            if (!isValidPhone(formData.phone)) {
+                showError('Пожалуйста, введите корректный номер телефона');
+                document.getElementById('phone').classList.add('error');
+                return;
+            }
+            
+            if (!isValidEmail(formData.email)) {
+                showError('Пожалуйста, введите корректный email');
+                document.getElementById('email').classList.add('error');
+                return;
+            }
+            
+            if (!formData.company_size) {
+                showError('Пожалуйста, выберите размер компании');
+                return;
+            }
+            
+            if (!formData.role) {
+                showError('Пожалуйста, выберите вашу роль');
+                return;
+            }
+            
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            
+            try {
+                const result = await saveToSupabase(formData);
+                
+                if (!result.success) {
+                    throw new Error(result.error || 'Ошибка сохранения');
                 }
-            })
-            .catch(error => {
-                alert('Ошибка отправки. Попробуйте ещё раз или напишите нам в Telegram.');
+                
+                ym(106277227, 'reachGoal', 'submit_demo_form');
+                showSuccess();
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                showError('Произошла ошибка. Попробуйте ещё раз или напишите нам в Telegram.');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+            }
+        });
+        
+        function showSuccess() {
+            form.classList.add('hiding');
+            setTimeout(() => {
+                form.style.display = 'none';
+                successBlock.classList.add('show');
+                document.getElementById('demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                ym(106277227, 'reachGoal', 'show_calendar');
+            }, 300);
+        }
+        
+        document.querySelectorAll('.form-group input, .form-group select').forEach(el => {
+            el.addEventListener('focus', function() {
+                this.classList.remove('error');
+                hideError();
             });
         });
     </script>
