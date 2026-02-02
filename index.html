@@ -377,11 +377,11 @@
         // ============================================
         // ИНИЦИАЛИЗАЦИЯ
         // ============================================
-        let supabase = null;
+        let supabaseClient = null;
         
         // Инициализируем Supabase только если ключи заданы
       if (SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_ANON_KEY !== 'YOUR_SUPABASE_ANON_KEY') {
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         }
         
         // Инициализируем Google Calendar кнопку после загрузки
@@ -423,12 +423,12 @@
         }
         
         async function saveToSupabase(data) {
-            if (!supabase) {
+            if (!supabaseClient) {
                 console.warn('Supabase не настроен, данные не сохранены в БД');
                 return { success: true, fallback: true };
             }
             
-            const { error } = await supabase
+            const { error } = await supabaseClient
                 .from('leads')
                 .insert([{
                     name: data.name,
