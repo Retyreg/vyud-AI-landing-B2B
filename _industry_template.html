@@ -1,0 +1,477 @@
+<!-- ШАБЛОН — не публикуется. Скопируй в {industry}.html и заполни плейсхолдеры. -->
+<!--
+  ИСПОЛЬЗОВАНИЕ:
+  1. cp _industry_template.html horeca.html
+  2. Замени все {{PLACEHOLDER}} на реальные значения
+  3. Добавь в CNAME/GitHub Pages как отдельную страницу
+
+  ПЛЕЙСХОЛДЕРЫ:
+  {{INDUSTRY_KEY}}       — slug: horeca / hotels / retail / fmcg
+  {{INDUSTRY_NAME}}      — Кофейни и рестораны
+  {{INDUSTRY_ICON}}      — 🍽️
+  {{INDUSTRY_TAGLINE}}   — Официант знает стандарт приветствия за первую смену
+  {{INDUSTRY_TEMPLATES}} — приветствие гостя, принятие заказа, работа с жалобой
+  {{INDUSTRY_H1}}        — PDF с регламентом → бариста прошёл квиз за 5 минут
+  {{INDUSTRY_SUBHEAD}}   — Адаптированный подзаголовок под отрасль
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYUD Frontline для {{INDUSTRY_NAME}} | Обучение персонала через Telegram</title>
+    <meta name="description" content="{{INDUSTRY_TAGLINE}}. Загрузите PDF-регламент — AI создаёт квиз. Сотрудники учатся в Telegram, менеджер видит дашборд. Бесплатно до 10 человек.">
+    <meta name="keywords" content="обучение персонала {{INDUSTRY_NAME}}, СОП для {{INDUSTRY_NAME}}, тест сотрудников Telegram, LMS для малого бизнеса">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "VYUD Frontline",
+      "url": "https://vyud.tech/{{INDUSTRY_KEY}}",
+      "description": "{{INDUSTRY_TAGLINE}}",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Telegram",
+      "audience": { "@type": "Audience", "audienceType": "{{INDUSTRY_NAME}}" },
+      "offers": {
+        "@type": "Offer",
+        "price": "5000",
+        "priceCurrency": "RUB"
+      }
+    }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230E1117%22%2F%3E%3Cpath%20d%3D%22M24%2016L14%2032L24%2048L32%2032Z%22%20fill%3D%22%2300D4FF%22%20opacity%3D%220.9%22%2F%3E%3Cpath%20d%3D%22M40%2016L30%2032L40%2048L50%2032Z%22%20fill%3D%22%2300D4FF%22%2F%3E%3C%2Fsvg%3E">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vyud.tech/{{INDUSTRY_KEY}}">
+    <meta property="og:title" content="VYUD Frontline для {{INDUSTRY_NAME}} | PDF → обучение в Telegram за 5 минут">
+    <meta property="og:description" content="{{INDUSTRY_TAGLINE}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106277227', 'ym');
+        ym(106277227, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106277227" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+    <style>
+        /* === Скопировано из index.html — не редактируй вручную, сверяй с оригиналом === */
+        :root {
+            --bg-deep: #0a0b0f; --bg-card: #12141a; --bg-elevated: #1a1d24;
+            --accent-cyan: #00d4ff; --accent-cyan-dim: rgba(0,212,255,0.15);
+            --accent-emerald: #10b981; --accent-amber: #f59e0b; --accent-red: #ef4444;
+            --text-primary: #f8fafc; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --border-subtle: rgba(255,255,255,0.06); --border-accent: rgba(0,212,255,0.3);
+            --font-main: 'Manrope', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg-deep); color: var(--text-primary); font-family: var(--font-main); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); }
+        h3 { font-size: 1.5rem; }
+        p { color: var(--text-secondary); font-size: 1.1rem; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0; background: rgba(10,11,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-subtle); }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); text-decoration: none; letter-spacing: -0.03em; }
+        .logo span { color: var(--accent-cyan); }
+        .header-cta { background: var(--accent-cyan); color: var(--bg-deep); padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+        .header-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,0.3); }
+        .hero { padding: 160px 0 100px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(0,212,255,0.12) 0%, transparent 70%); pointer-events: none; }
+        .hero-content { max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-cyan-dim); border: 1px solid var(--border-accent); padding: 8px 16px; border-radius: 100px; font-size: 0.875rem; color: var(--accent-cyan); margin-bottom: 32px; }
+        .hero h1 { margin-bottom: 24px; }
+        .hero h1 .highlight { color: var(--accent-cyan); }
+        .hero-subhead { font-size: 1.25rem; max-width: 640px; margin: 0 auto 40px; }
+        .hero-cta-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent-cyan); color: var(--bg-deep); padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.05rem; transition: all 0.25s; border: none; cursor: pointer; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,212,255,0.35); }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--text-primary); padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1.05rem; border: 1px solid var(--border-subtle); transition: all 0.25s; }
+        .btn-secondary:hover { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+        .hero-micro { font-size: 0.95rem; color: var(--text-muted); }
+        .hero-micro strong { color: var(--accent-cyan); }
+        .how-section { padding: 100px 0; }
+        .how-header { text-align: center; margin-bottom: 60px; }
+        .how-header h2 { margin-bottom: 16px; }
+        .steps-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+        .step-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 32px; position: relative; transition: all 0.3s; }
+        .step-card:hover { border-color: var(--border-accent); }
+        .step-num { position: absolute; top: -16px; left: 24px; width: 40px; height: 40px; background: var(--accent-cyan); color: var(--bg-deep); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; }
+        .step-card h3 { margin: 16px 0 12px; font-size: 1.25rem; }
+        .step-card p { font-size: 1rem; margin: 0; }
+        /* Industry spotlight */
+        .industry-spotlight { padding: 80px 0; background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 50%, var(--bg-deep) 100%); }
+        .spotlight-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+        .spotlight-icon { font-size: 4rem; margin-bottom: 20px; }
+        .spotlight-inner h2 { margin-bottom: 16px; }
+        .templates-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 32px; }
+        .template-tag { background: var(--accent-cyan-dim); border: 1px solid var(--border-accent); color: var(--accent-cyan); padding: 8px 16px; border-radius: 100px; font-size: 0.875rem; }
+        /* Pilot, FAQ, demo — same as index.html */
+        .pilot-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(139,92,246,0.05) 50%, var(--bg-deep) 100%); }
+        .pilot-container { max-width: 900px; margin: 0 auto; }
+        .pilot-header { text-align: center; margin-bottom: 48px; }
+        .pilot-header h2 { margin-bottom: 16px; }
+        .pilot-steps { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+        .pilot-step { display: flex; align-items: flex-start; gap: 20px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 24px; }
+        .pilot-step:hover { border-color: var(--accent-emerald); }
+        .pilot-icon { width: 48px; height: 48px; background: rgba(16,185,129,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .pilot-step-content h4 { font-size: 1.1rem; margin-bottom: 6px; }
+        .pilot-step-content p { font-size: 1rem; margin: 0; }
+        .pilot-guarantee { background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+        .pilot-guarantee p { margin: 0; color: var(--text-primary); font-size: 1rem; }
+        .pilot-guarantee strong { color: var(--accent-amber); }
+        .faq-section { padding: 100px 0; }
+        .faq-header { text-align: center; max-width: 700px; margin: 0 auto 56px; }
+        .faq-header h2 { margin-bottom: 16px; }
+        .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px; overflow: hidden; }
+        .faq-item[open] { border-color: var(--border-accent); }
+        .faq-item summary { padding: 20px 24px; font-size: 1rem; font-weight: 600; color: var(--text-primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; line-height: 1.4; user-select: none; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--accent-cyan); flex-shrink: 0; transition: transform 0.2s; }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-answer { padding: 0 24px 20px; }
+        .faq-answer p { font-size: 0.975rem; line-height: 1.75; margin: 0; }
+        .demo-section { padding: 100px 0; background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-card) 100%); }
+        .demo-container { max-width: 640px; margin: 0 auto; text-align: center; }
+        .demo-header { margin-bottom: 40px; }
+        .demo-header h2 { margin-bottom: 16px; }
+        .demo-form { background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 40px; text-align: left; transition: opacity 0.3s, transform 0.3s; }
+        .demo-form.hiding { opacity: 0; transform: translateY(-20px); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500; }
+        .form-group input, .form-group select { width: 100%; padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 10px; color: var(--text-primary); font-family: var(--font-main); font-size: 1rem; transition: all 0.2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 0 3px var(--accent-cyan-dim); }
+        .form-group input::placeholder { color: var(--text-muted); }
+        .form-group input.error, .form-group select.error { border-color: var(--accent-red); }
+        .form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; }
+        .form-consent { display: flex; align-items: flex-start; gap: 12px; margin: 24px 0; }
+        .form-consent input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent-cyan); cursor: pointer; }
+        .form-consent label { font-size: 0.9rem; color: var(--text-secondary); cursor: pointer; }
+        .form-submit { width: 100%; padding: 18px; background: var(--accent-cyan); color: var(--bg-deep); border: none; border-radius: 12px; font-family: var(--font-main); font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.25s; position: relative; }
+        .form-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,212,255,0.35); }
+        .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+        .form-submit.loading { color: transparent; }
+        .form-submit.loading::after { content: ''; position: absolute; width: 24px; height: 24px; top: 50%; left: 50%; margin-left: -12px; margin-top: -12px; border: 3px solid var(--bg-deep); border-radius: 50%; border-top-color: transparent; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .form-note { text-align: center; margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); }
+        .form-error { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; color: var(--accent-red); font-size: 0.9rem; display: none; }
+        .form-error.show { display: block; }
+        .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; z-index: -1; }
+        .form-success { display: none; text-align: center; padding: 40px 20px; background: var(--bg-elevated); border: 1px solid var(--border-subtle); border-radius: 20px; animation: fadeIn 0.4s ease-out; }
+        .form-success.show { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .form-success h3 { color: var(--accent-emerald); margin-bottom: 16px; font-size: 1.5rem; }
+        .form-success p { margin-bottom: 24px; }
+        .form-success .step-indicator { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .form-success .step-indicator .step { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.9rem; }
+        .form-success .step-indicator .step.done { color: var(--accent-emerald); }
+        .form-success .step-indicator .step.active { color: var(--accent-cyan); }
+        .form-success .step-indicator .divider { width: 40px; height: 2px; background: var(--border-subtle); }
+        .calendar-container { margin: 24px 0; padding: 24px; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-accent); }
+        .calendar-container h4 { color: var(--text-primary); font-size: 1.1rem; margin-bottom: 16px; }
+        .calendar-container p { font-size: 0.95rem; margin-bottom: 20px; }
+        #google-calendar-button { display: flex; justify-content: center; min-height: 50px; }
+        .success-footer { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-subtle); }
+        .success-footer p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+        .success-footer a { color: var(--accent-cyan); text-decoration: none; }
+        .bot-cta-section { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--border-subtle); }
+        .bot-cta-content { max-width: 700px; margin: 0 auto; text-align: center; }
+        .bot-cta-content h3 { font-size: 1.75rem; margin-bottom: 16px; }
+        .bot-cta-content p { margin-bottom: 24px; }
+        .btn-telegram { display: inline-flex; align-items: center; gap: 10px; background: #0088cc; color: white; padding: 16px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.05rem; transition: all 0.25s; }
+        .btn-telegram:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,136,204,0.35); }
+        .footer { background: var(--bg-deep); border-top: 1px solid var(--border-subtle); padding: 60px 0 30px; }
+        .footer-main { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border-subtle); }
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        .footer-brand h3 span { color: var(--accent-cyan); }
+        .footer-brand p { color: var(--text-muted); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 60px; flex-wrap: wrap; }
+        .footer-column h4 { color: var(--text-primary); font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 10px; }
+        .footer-column a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-column a:hover { color: var(--accent-cyan); }
+        .footer-legal { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 30px; padding-top: 30px; }
+        .legal-info { color: var(--text-muted); font-size: 0.8rem; line-height: 1.6; }
+        .legal-info p { margin: 4px 0; font-size: 0.8rem; color: var(--text-muted); }
+        .legal-info strong { color: var(--text-secondary); }
+        .legal-info a { color: var(--text-muted); text-decoration: underline; }
+        .legal-copyright { text-align: right; color: var(--text-muted); font-size: 0.8rem; }
+        .legal-copyright p { margin: 4px 0; font-size: 0.8rem; color: var(--text-muted); }
+        .legal-note a { color: var(--text-muted); }
+        @media (max-width: 992px) { .steps-container { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) { .header-cta { display: none; } .hero { padding: 120px 0 60px; } .hero-cta-row { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } .form-row { grid-template-columns: 1fr; } .steps-container { grid-template-columns: 1fr; } .footer-main { flex-direction: column; } .footer-links { flex-direction: column; gap: 30px; } .footer-legal { flex-direction: column; text-align: center; } .legal-copyright { text-align: center; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="/" class="logo">VYUD<span>.</span>AI</a>
+            <a href="#demo" class="header-cta" onclick="ym(106277227,'reachGoal','click_header_demo')">Забронировать демо</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><span>{{INDUSTRY_ICON}}</span> {{INDUSTRY_NAME}}</div>
+                <h1>{{INDUSTRY_H1}}<br><span class="highlight">за 5 минут.</span></h1>
+                <p class="hero-subhead">{{INDUSTRY_SUBHEAD}}</p>
+                <div class="hero-cta-row">
+                    <a href="https://t.me/VyudAiBot?start={{INDUSTRY_KEY}}" class="btn-primary" target="_blank"
+                       onclick="ym(106277227,'reachGoal','click_hero_bot',{industry:'{{INDUSTRY_KEY}}'})">✈️ Попробовать бесплатно</a>
+                    <a href="#demo" class="btn-secondary" onclick="ym(106277227,'reachGoal','click_hero_demo',{industry:'{{INDUSTRY_KEY}}'})">📅 Забронировать демо</a>
+                </div>
+                <p class="hero-micro">Бесплатно: 1 регламент, до 10 сотрудников. <strong>Без карты, без звонков.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отраслевой spotlight — вместо блока "Для кого" из index.html -->
+    <section class="industry-spotlight">
+        <div class="container">
+            <div class="spotlight-inner">
+                <div class="spotlight-icon">{{INDUSTRY_ICON}}</div>
+                <h2>{{INDUSTRY_TAGLINE}}</h2>
+                <p>Готовые шаблоны СОПов для {{INDUSTRY_NAME}} — загрузите или используйте как основу:</p>
+                <div class="templates-list" id="industry-templates">
+                    <!-- Заполняется из JS ниже -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="how-section">
+        <div class="container">
+            <div class="how-header">
+                <h2>Загрузили PDF → сотрудник прошёл квиз. Без «но».</h2>
+                <p>4 шага от регламента до подтверждённых знаний</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card"><div class="step-num">1</div><h3>Загрузите PDF</h3><p>СОП, стандарт обслуживания, инструкция по кассе — любой регламент в PDF</p></div>
+                <div class="step-card"><div class="step-num">2</div><h3>AI делает всё сам</h3><p>Разбивает на понятные шаги и создаёт квиз с правильными ответами и объяснениями</p></div>
+                <div class="step-card"><div class="step-num">3</div><h3>Сотрудник учится в Telegram</h3><p>Открывает мини-приложение в телефоне, читает шаги, проходит тест — без установки приложений</p></div>
+                <div class="step-card"><div class="step-num">4</div><h3>Вы видите результат</h3><p>Дашборд: кто прошёл, кто нет, баллы по каждому сотруднику и регламенту</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilot" class="pilot-section">
+        <div class="container">
+            <div class="pilot-container">
+                <div class="pilot-header">
+                    <h2>Начните бесплатно — прямо сейчас</h2>
+                    <p>Никакой формы заявки. Никакого звонка с менеджером. Просто откройте бота.</p>
+                </div>
+                <div class="pilot-steps">
+                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Бесплатно навсегда: 1 регламент, до 10 сотрудников</h4><p>Достаточно чтобы убедиться что это работает на вашей команде</p></div></div>
+                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Готовые шаблоны для {{INDUSTRY_NAME}}</h4><p>{{INDUSTRY_TEMPLATES}} — можно использовать сразу или адаптировать под себя</p></div></div>
+                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Полная версия — от 5 000 ₽/мес</h4><p>Неограниченное количество регламентов и сотрудников, готовые отраслевые шаблоны, поддержка в Telegram. Переходите когда готовы — без давления.</p></div></div>
+                </div>
+                <div class="pilot-guarantee"><p>Нужна помощь с первым регламентом? <strong>Напишите нам в Telegram</strong> — настроим вместе за 15 минут.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="faq-header">
+                <h2>Частые вопросы</h2>
+                <p>Отвечаем честно — без маркетинговых уверток</p>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>У меня нет готовых PDF-регламентов. Что делать?</summary>
+                    <div class="faq-answer"><p>Мы даём готовые шаблоны для {{INDUSTRY_NAME}} — можете использовать их как основу. Или напишите регламент в свободной форме (даже в Word) — наш AI поможет структурировать. На демо-звонке за 15 минут мы составим ваш первый СОП вместе.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Мои сотрудники не пользуются Telegram. Есть альтернатива?</summary>
+                    <div class="faq-answer"><p>95% линейного персонала уже пользуется Telegram — для переписки со сменщиками. Если у части сотрудников нет Telegram — мы даём прямую веб-ссылку, которая открывается в любом браузере телефона. Установка приложения не нужна.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>А если AI неправильно разобьёт документ или придумает неверные вопросы?</summary>
+                    <div class="faq-answer"><p>Перед публикацией вы просматриваете сгенерированные шаги и вопросы — можете редактировать любой шаг в один клик. AI — это черновик, который экономит 90% времени, но финальное слово за вами.</p></div>
+                </details>
+                <details class="faq-item">
+                    <summary>Что с сезонными сотрудниками — нужно ли платить за них отдельно?</summary>
+                    <div class="faq-answer"><p>В платном тарифе лимита по количеству сотрудников нет. Нанимаете людей на сезон — просто добавляете. Когда сезон заканчивается, удаляете. Цена не меняется.</p></div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="demo-container">
+                <div class="demo-header"><h2>Хотите посмотреть на своём документе?</h2><p>Оставьте заявку — проведём 15-минутное демо на вашем регламенте. Или просто откройте бота и попробуйте сами.</p></div>
+                <form id="lead-form" class="demo-form">
+                    <div id="form-error" class="form-error"></div>
+                    <div class="hp-field"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+                    <div class="form-group"><label for="name">Имя *</label><input type="text" id="name" name="name" required placeholder="Иван Петров"></div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="phone">Телефон <span style="color:var(--text-muted);font-weight:400">(хотя бы одно из двух)</span></label><input type="tel" id="phone" name="phone" placeholder="+7 999 123-45-67"></div>
+                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="ivan@company.ru"></div>
+                    </div>
+                    <!-- industry скрытое поле — предзаполнено из JS -->
+                    <input type="hidden" id="industry" name="industry" value="{{INDUSTRY_KEY}}">
+                    <div class="form-consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">Согласен на 15-минутную демо-сессию с экспертом VYUD AI</label></div>
+                    <button type="submit" class="form-submit" id="submit-btn">📅 Отправить заявку</button>
+                    <p class="form-note">Мы не продаём без демо. Ваш документ не будет использован без разрешения.</p>
+                </form>
+                <div id="success" class="form-success">
+                    <h3>✅ Заявка отправлена!</h3>
+                    <div class="step-indicator">
+                        <div class="step done"><span>✓</span> Заявка принята</div>
+                        <div class="divider"></div>
+                        <div class="step active"><span>2</span> Выберите время</div>
+                    </div>
+                    <div class="calendar-container">
+                        <h4>📅 Выберите удобное время для демо</h4>
+                        <p>Нажмите кнопку ниже, чтобы забронировать слот в календаре:</p>
+                        <div id="google-calendar-button"></div>
+                    </div>
+                    <div class="success-footer">
+                        <p>После выбора слота вы получите приглашение на почту.<br>
+                        Не нашли подходящее время? <a href="https://t.me/vyud_ai" target="_blank">Напишите нам в Telegram</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bot-cta-section">
+        <div class="container">
+            <div class="bot-cta-content">
+                <h3>Попробуйте прямо сейчас — бесплатно</h3>
+                <p>Откройте бота, создайте организацию, загрузите PDF или возьмите готовый шаблон. Первый регламент и до 10 сотрудников — навсегда бесплатно.</p>
+                <a href="https://t.me/VyudAiBot?start={{INDUSTRY_KEY}}" class="btn-telegram" target="_blank"
+                   onclick="ym(106277227,'reachGoal','click_telegram_cta',{industry:'{{INDUSTRY_KEY}}'})">✈️ Открыть VYUD Frontline</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand"><h3>VYUD<span>.</span>AI</h3><p>Стандарты, которые соблюдаются</p></div>
+                <div class="footer-links">
+                    <div class="footer-column"><h4>Продукт</h4><ul><li><a href="#how">Как работает</a></li><li><a href="#pilot">Тарифы</a></li><li><a href="#demo">Забронировать демо</a></li><li><a href="https://t.me/VyudAiBot?start={{INDUSTRY_KEY}}" target="_blank">Попробовать бесплатно</a></li></ul></div>
+                    <div class="footer-column"><h4>Документы</h4><ul><li><a href="offer.pdf" target="_blank">Публичная оферта</a></li><li><a href="privacy.html">Политика конфиденциальности</a></li></ul></div>
+                    <div class="footer-column"><h4>Контакты</h4><ul><li><a href="mailto:vatutovd@gmail.com">vatutovd@gmail.com</a></li><li><a href="https://t.me/vyud_ai" target="_blank">Telegram-канал</a></li><li><a href="https://t.me/VyudAiBot" target="_blank">Telegram-бот</a></li></ul></div>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <div class="legal-info"><p><strong>Самозанятый Ватютов Дмитрий Валерьевич</strong></p><p>ИНН: 120302589525</p><p>г. Москва</p><p>Email: <a href="mailto:vatutovd@gmail.com">vatutovd@gmail.com</a></p></div>
+                <div class="legal-copyright"><p>© 2026 VYUD AI</p><p class="legal-note">Оплата через <a href="https://prodamus.ru" target="_blank" rel="noopener">Prodamus</a></p></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // ============================================
+        // ОТРАСЛЕВЫЕ ДАННЫЕ — скопированы из index.html
+        // ============================================
+        const INDUSTRY_KEY = '{{INDUSTRY_KEY}}';
+        const INDUSTRY_TEMPLATES = ['{{INDUSTRY_TEMPLATES}}'];  // замени на массив строк
+
+        // Рендер тегов шаблонов
+        (function() {
+            const el = document.getElementById('industry-templates');
+            if (el && INDUSTRY_TEMPLATES.length) {
+                el.innerHTML = INDUSTRY_TEMPLATES.map(t => `<span class="template-tag">${t}</span>`).join('');
+            }
+        })();
+
+        // ============================================
+        // КОНФИГУРАЦИЯ
+        // ============================================
+        const SUPABASE_URL = 'https://vdduyndldbetdhwtilks.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkZHV5bmRsZGJldGRod3RpbGtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NzgwMTIsImV4cCI6MjA4MTU1NDAxMn0.t-4OESW1AtI9GRJEbxGAV8SYIoOrIyZs6NVghwwU4UE';
+        const CALENDAR_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Q1BiHUkIBYZ69cKODCZY3-3ALBK-ZLcKSDa93d-uH9Ef_CopjzEssV8eA1VWFM86umATJGueu?gv=true';
+
+        let supabaseClient = null;
+        if (SUPABASE_URL !== 'YOUR_SUPABASE_URL') {
+            supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        }
+
+        window.addEventListener('load', function() {
+            if (typeof calendar !== 'undefined' && calendar.schedulingButton) {
+                calendar.schedulingButton.load({ url: CALENDAR_URL, color: '#00d4ff', label: 'Выбрать время в календаре', target: document.getElementById('google-calendar-button') });
+            }
+        });
+
+        const form = document.getElementById('lead-form');
+        const successBlock = document.getElementById('success');
+        const submitBtn = document.getElementById('submit-btn');
+        const formError = document.getElementById('form-error');
+
+        function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+        function isValidPhone(p) { return p.replace(/\D/g, '').length >= 10; }
+        function showError(msg) { formError.textContent = msg; formError.classList.add('show'); formError.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        function hideError() { formError.classList.remove('show'); }
+
+        async function saveToSupabase(data) {
+            if (!supabaseClient) return { success: true, fallback: true };
+            const { error } = await supabaseClient.from('leads').insert([{
+                name: data.name, email: data.email || null, phone: data.phone || null,
+                company_size: null, role: null, document: null,
+                industry: data.industry, source: 'vyud.tech/' + INDUSTRY_KEY
+            }]);
+            if (error) { console.error('Supabase error:', error); return { success: false, error: error.message }; }
+            return { success: true };
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideError();
+            if (document.getElementById('website').value) { showSuccess(); return; }
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                industry: INDUSTRY_KEY
+            };
+            if (!formData.name || formData.name.length < 2) { showError('Пожалуйста, введите ваше имя'); return; }
+            const hasPhone = formData.phone && isValidPhone(formData.phone);
+            const hasEmail = formData.email && isValidEmail(formData.email);
+            if (!hasPhone && !hasEmail) { showError('Укажите телефон или email — хотя бы одно из двух'); return; }
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+            try {
+                const result = await saveToSupabase(formData);
+                if (!result.success) throw new Error(result.error || 'Ошибка сохранения');
+                ym(106277227, 'reachGoal', 'submit_demo_form', { industry: INDUSTRY_KEY });
+                showSuccess();
+            } catch (err) {
+                showError('Произошла ошибка. Попробуйте ещё раз или напишите нам в Telegram.');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+            }
+        });
+
+        function showSuccess() {
+            form.classList.add('hiding');
+            setTimeout(() => {
+                form.style.display = 'none';
+                successBlock.classList.add('show');
+                document.getElementById('demo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                ym(106277227, 'reachGoal', 'show_calendar');
+            }, 300);
+        }
+
+        document.querySelectorAll('.form-group input, .form-group select').forEach(el => {
+            el.addEventListener('focus', function() { this.classList.remove('error'); hideError(); });
+        });
+    </script>
+</body>
+</html>
