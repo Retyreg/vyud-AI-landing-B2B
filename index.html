@@ -190,7 +190,8 @@
         .legal-note { font-size: 0.75rem; }
         .legal-note a { color: var(--text-muted); }
         .legal-note a:hover { color: var(--accent-cyan); }
-        @media (max-width: 992px) { .stats-grid, .steps-container, .cases-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; } }
+        @media (max-width: 992px) { .stats-grid, .steps-container { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; } .cases-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .cases-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; } }
         @media (max-width: 768px) { .header-cta { display: none; } .hero { padding: 120px 0 60px; } .hero-cta-row { flex-direction: column; } .btn-primary, .btn-secondary { width: 100%; justify-content: center; } .form-row { grid-template-columns: 1fr; } .footer-main { flex-direction: column; } .footer-links { flex-direction: column; gap: 30px; } .footer-legal { flex-direction: column; text-align: center; } .legal-copyright { text-align: center; } }
     </style>
 </head>
@@ -212,7 +213,7 @@
                     <a href="https://t.me/VyudAiBot?start=landing" class="btn-primary" target="_blank" onclick="ym(106277227,'reachGoal','click_hero_bot')">✈️ Попробовать бесплатно</a>
                     <a href="#demo" class="btn-secondary" onclick="ym(106277227,'reachGoal','click_hero_demo')">📅 Забронировать демо</a>
                 </div>
-                <p class="hero-micro">Бесплатно: 1 регламент, до 5 сотрудников. <strong>Без карты, без звонков.</strong></p>
+                <p class="hero-micro">Бесплатно: 1 регламент, до 10 сотрудников. <strong>Без карты, без звонков.</strong></p>
             </div>
         </div>
     </section>
@@ -259,9 +260,9 @@
                     <p>Никакой формы заявки. Никакого звонка с менеджером. Просто откройте бота.</p>
                 </div>
                 <div class="pilot-steps">
-                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Бесплатно навсегда: 1 регламент, до 5 сотрудников</h4><p>Достаточно чтобы убедиться что это работает на вашей команде</p></div></div>
+                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Бесплатно навсегда: 1 регламент, до 10 сотрудников</h4><p>Достаточно чтобы убедиться что это работает на вашей команде</p></div></div>
                     <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Или возьмите готовый шаблон</h4><p>7 готовых СОПов для HoReCa, Retail и FMCG — приветствие гостя, открытие смены, работа с кассой, выкладка товара и другие</p></div></div>
-                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Полная версия — от 5 000 ₽/мес</h4><p>Неограниченные регламенты, любое количество сотрудников, белый лейбл. Переходите когда готовы — без давления.</p></div></div>
+                    <div class="pilot-step"><div class="pilot-icon">✅</div><div class="pilot-step-content"><h4>Полная версия — от 5 000 ₽/мес</h4><p>Неограниченное количество регламентов и сотрудников, готовые отраслевые шаблоны, поддержка в Telegram. Переходите когда готовы — без давления.</p></div></div>
                 </div>
                 <div class="pilot-guarantee"><div class="pilot-guarantee-icon">💬</div><p>Нужна помощь с первым регламентом? <strong>Напишите нам в Telegram</strong> — настроим вместе за 15 минут.</p></div>
             </div>
@@ -271,10 +272,27 @@
     <section class="cases-section">
         <div class="container">
             <div class="cases-header"><h2>Для кого это работает</h2><p>VYUD Frontline создан для линейного персонала в отраслях где важен стандарт</p></div>
-            <div class="cases-grid">
-                <div class="case-card"><div class="case-industry">🍽️ HoReCa</div><div class="case-metric">5 мин</div><div class="case-desc">от загрузки СОПа до первого официанта, прошедшего тест по стандарту обслуживания</div><div class="case-quote">«Приветствие гостя, принятие заказа, работа с жалобой — готовые шаблоны уже в системе»</div></div>
-                <div class="case-card"><div class="case-industry">🛒 Retail</div><div class="case-metric">0 руб</div><div class="case-desc">стоимость старта — попробуйте на открытии смены или выкладке товара прямо сейчас</div><div class="case-quote">«Сотрудник читает шаги в Telegram, проходит квиз, менеджер видит результат — без LMS и методиста»</div></div>
-                <div class="case-card"><div class="case-industry">📦 FMCG и склад</div><div class="case-metric">100%</div><div class="case-desc">видимость: дашборд показывает кто прошёл регламент, кто нет, и с каким баллом</div><div class="case-quote">«Загрузили инструкцию по возврату товара — через 10 минут весь отдел прошёл тест»</div></div>
+            <div class="cases-grid" style="grid-template-columns: repeat(4, 1fr);">
+                <a id="horeca" href="#horeca" class="case-card" style="text-decoration:none; color:inherit;">
+                    <div class="case-industry">🍽️ Кофейни и рестораны</div>
+                    <div class="case-desc">Официант знает стандарт приветствия и работы с жалобой за первую смену</div>
+                    <div class="case-quote">Готовые шаблоны: приветствие гостя, принятие заказа, работа с жалобой, санитарные нормы</div>
+                </a>
+                <a id="hotels" href="#hotels" class="case-card" style="text-decoration:none; color:inherit;">
+                    <div class="case-industry">🏨 Отели и гостевые дома</div>
+                    <div class="case-desc">Администратор знает скрипт чек-ина и работу с запросами гостя до конца первой недели</div>
+                    <div class="case-quote">Готовые шаблоны: чек-ин / чек-аут, уборка номера, работа с жалобой, безопасность</div>
+                </a>
+                <a id="retail" href="#retail" class="case-card" style="text-decoration:none; color:inherit;">
+                    <div class="case-industry">🍾 Алкомаркеты и ритейл</div>
+                    <div class="case-desc">Продавец знает работу с ЕГАИС и проверку возраста с первого дня на кассе</div>
+                    <div class="case-quote">Готовые шаблоны: работа с ЕГАИС, проверка возраста, открытие / закрытие смены, возвраты</div>
+                </a>
+                <a id="fmcg" href="#fmcg" class="case-card" style="text-decoration:none; color:inherit;">
+                    <div class="case-industry">📦 Склады и FMCG</div>
+                    <div class="case-desc">Новый кладовщик знает регламент приёмки и возврата товара за 3 дня</div>
+                    <div class="case-quote">Готовые шаблоны: приёмка товара, инвентаризация, возвраты, техника безопасности</div>
+                </a>
             </div>
         </div>
     </section>
@@ -293,16 +311,12 @@
                         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                     </div>
                     
+                    <div class="form-group"><label for="name">Имя *</label><input type="text" id="name" name="name" required placeholder="Иван Петров"></div>
                     <div class="form-row">
-                        <div class="form-group"><label for="name">Имя и фамилия *</label><input type="text" id="name" name="name" required placeholder="Иван Петров"></div>
-                        <div class="form-group"><label for="phone">Телефон *</label><input type="tel" id="phone" name="phone" required placeholder="+7 999 123-45-67"></div>
+                        <div class="form-group"><label for="phone">Телефон <span style="color:var(--text-muted);font-weight:400">(хотя бы одно из двух)</span></label><input type="tel" id="phone" name="phone" placeholder="+7 999 123-45-67"></div>
+                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="ivan@company.ru"></div>
                     </div>
-                    <div class="form-group"><label for="email">Рабочая почта *</label><input type="email" id="email" name="email" required placeholder="ivan@company.ru"></div>
-                    <div class="form-row">
-                        <div class="form-group"><label for="company_size">Размер компании *</label><select id="company_size" name="company_size" required><option value="">Выберите...</option><option value="1-10">1–10 человек</option><option value="11-50">11–50 человек</option><option value="51-200">51–200 человек</option><option value="200+">200+ человек</option></select></div>
-                        <div class="form-group"><label for="role">Ваша роль *</label><select id="role" name="role" required><option value="">Выберите...</option><option value="owner">Владелец бизнеса</option><option value="hr">HR / L&D-менеджер</option><option value="head">Руководитель отдела</option><option value="other">Другое</option></select></div>
-                    </div>
-                    <div class="form-group"><label for="document">Какой документ хотите превратить в тест?</label><textarea id="document" name="document" placeholder="Например: СОП по работе с возражениями, инструкция по кассе, правила пожарной безопасности..."></textarea></div>
+                    <div class="form-group"><label for="industry">Отрасль *</label><select id="industry" name="industry" required><option value="">Выберите...</option><option value="horeca">HoReCa (кофейни, рестораны)</option><option value="hotels">Отели и гостевые дома</option><option value="retail">Алкомаркеты и ритейл</option><option value="fmcg">Склады и FMCG</option><option value="other">Другое</option></select></div>
                     <div class="form-consent"><input type="checkbox" id="consent" name="consent" required><label for="consent">Согласен на 15-минутную демо-сессию с экспертом VYUD AI</label></div>
                     <button type="submit" class="form-submit" id="submit-btn">📅 Отправить заявку</button>
                     <p class="form-note">Мы не продаём без демо. Ваш документ не будет использован без разрешения.</p>
@@ -336,7 +350,7 @@
         <div class="container">
             <div class="bot-cta-content">
                 <h3>Попробуйте прямо сейчас — бесплатно</h3>
-                <p>Откройте бота, создайте организацию, загрузите PDF или возьмите готовый шаблон. Первый регламент и до 5 сотрудников — навсегда бесплатно.</p>
+                <p>Откройте бота, создайте организацию, загрузите PDF или возьмите готовый шаблон. Первый регламент и до 10 сотрудников — навсегда бесплатно.</p>
                 <a href="https://t.me/VyudAiBot?start=landing" class="btn-telegram" target="_blank" onclick="ym(106277227,'reachGoal','click_telegram_cta')">✈️ Открыть VYUD Frontline</a>
             </div>
         </div>
@@ -433,11 +447,12 @@
                 .from('leads')
                 .insert([{
                     name: data.name,
-                    email: data.email,
-                    phone: data.phone,
-                    company_size: data.company_size,
-                    role: data.role,
-                    document: data.document,
+                    email: data.email || null,
+                    phone: data.phone || null,
+                    company_size: null,
+                    role: null,
+                    document: null,
+                    industry: data.industry,
                     source: 'vyud.tech'
                 }]);
             
@@ -465,37 +480,38 @@
                 name: document.getElementById('name').value.trim(),
                 email: document.getElementById('email').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
-                company_size: document.getElementById('company_size').value,
-                role: document.getElementById('role').value,
-                document: document.getElementById('document').value.trim()
+                industry: document.getElementById('industry').value
             };
-            
+
             // Валидация
             if (!formData.name || formData.name.length < 2) {
                 showError('Пожалуйста, введите ваше имя');
                 document.getElementById('name').classList.add('error');
                 return;
             }
-            
-            if (!isValidPhone(formData.phone)) {
+
+            const hasPhone = formData.phone && isValidPhone(formData.phone);
+            const hasEmail = formData.email && isValidEmail(formData.email);
+            if (!hasPhone && !hasEmail) {
+                showError('Укажите телефон или email — хотя бы одно из двух');
+                document.getElementById('phone').classList.add('error');
+                document.getElementById('email').classList.add('error');
+                return;
+            }
+            if (formData.phone && !hasPhone) {
                 showError('Пожалуйста, введите корректный номер телефона');
                 document.getElementById('phone').classList.add('error');
                 return;
             }
-            
-            if (!isValidEmail(formData.email)) {
+            if (formData.email && !hasEmail) {
                 showError('Пожалуйста, введите корректный email');
                 document.getElementById('email').classList.add('error');
                 return;
             }
-            
-            if (!formData.company_size) {
-                showError('Пожалуйста, выберите размер компании');
-                return;
-            }
-            
-            if (!formData.role) {
-                showError('Пожалуйста, выберите вашу роль');
+
+            if (!formData.industry) {
+                showError('Пожалуйста, выберите отрасль');
+                document.getElementById('industry').classList.add('error');
                 return;
             }
             
