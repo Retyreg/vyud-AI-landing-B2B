@@ -348,28 +348,7 @@
     <section class="cases-section">
         <div class="container">
             <div class="cases-header"><h2>Для кого это работает</h2><p>VYUD Frontline создан для линейного персонала в отраслях где важен стандарт</p></div>
-            <div class="cases-grid" style="grid-template-columns: repeat(4, 1fr);">
-                <a id="horeca" href="#horeca" class="case-card" style="text-decoration:none; color:inherit;">
-                    <div class="case-industry">🍽️ Кофейни и рестораны</div>
-                    <div class="case-desc">Официант знает стандарт приветствия и работы с жалобой за первую смену</div>
-                    <div class="case-quote">Готовые шаблоны: приветствие гостя, принятие заказа, работа с жалобой, санитарные нормы</div>
-                </a>
-                <a id="hotels" href="#hotels" class="case-card" style="text-decoration:none; color:inherit;">
-                    <div class="case-industry">🏨 Отели и гостевые дома</div>
-                    <div class="case-desc">Администратор знает скрипт чек-ина и работу с запросами гостя до конца первой недели</div>
-                    <div class="case-quote">Готовые шаблоны: чек-ин / чек-аут, уборка номера, работа с жалобой, безопасность</div>
-                </a>
-                <a id="retail" href="#retail" class="case-card" style="text-decoration:none; color:inherit;">
-                    <div class="case-industry">🍾 Алкомаркеты и ритейл</div>
-                    <div class="case-desc">Продавец знает работу с ЕГАИС и проверку возраста с первого дня на кассе</div>
-                    <div class="case-quote">Готовые шаблоны: работа с ЕГАИС, проверка возраста, открытие / закрытие смены, возвраты</div>
-                </a>
-                <a id="fmcg" href="#fmcg" class="case-card" style="text-decoration:none; color:inherit;">
-                    <div class="case-industry">📦 Склады и FMCG</div>
-                    <div class="case-desc">Новый кладовщик знает регламент приёмки и возврата товара за 3 дня</div>
-                    <div class="case-quote">Готовые шаблоны: приёмка товара, инвентаризация, возвраты, техника безопасности</div>
-                </a>
-            </div>
+            <div id="industries-grid" class="cases-grid" style="grid-template-columns: repeat(4, 1fr);"></div>
         </div>
     </section>
 
@@ -487,6 +466,55 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script>
+        // ============================================
+        // ОТРАСЛЕВЫЕ ДАННЫЕ — единый источник контента
+        // Переиспользуется в _industry_template.html
+        // ============================================
+        const INDUSTRIES = {
+            horeca: {
+                icon: '🍽️',
+                title: 'Кофейни и рестораны',
+                tagline: 'Официант знает стандарт приветствия и работы с жалобой за первую смену',
+                templates: ['приветствие гостя', 'принятие заказа', 'работа с жалобой', 'санитарные нормы'],
+                anchor: 'horeca'
+            },
+            hotels: {
+                icon: '🏨',
+                title: 'Отели и гостевые дома',
+                tagline: 'Администратор знает скрипт чек-ина и работу с запросами гостя до конца первой недели',
+                templates: ['чек-ин / чек-аут', 'уборка номера', 'работа с жалобой', 'безопасность'],
+                anchor: 'hotels'
+            },
+            retail: {
+                icon: '🍾',
+                title: 'Алкомаркеты и ритейл',
+                tagline: 'Продавец знает работу с ЕГАИС и проверку возраста с первого дня на кассе',
+                templates: ['работа с ЕГАИС', 'проверка возраста', 'открытие / закрытие смены', 'возвраты'],
+                anchor: 'retail'
+            },
+            fmcg: {
+                icon: '📦',
+                title: 'Склады и FMCG',
+                tagline: 'Новый кладовщик знает регламент приёмки и возврата товара за 3 дня',
+                templates: ['приёмка товара', 'инвентаризация', 'возвраты', 'техника безопасности'],
+                anchor: 'fmcg'
+            }
+        };
+
+        (function renderIndustries() {
+            const grid = document.getElementById('industries-grid');
+            if (!grid) return;
+            grid.innerHTML = Object.entries(INDUSTRIES).map(([key, ind]) => `
+                <a id="${ind.anchor}" href="#${ind.anchor}" class="case-card"
+                   style="text-decoration:none; color:inherit;"
+                   onclick="ym(106277227,'reachGoal','click_industry_${key}')">
+                    <div class="case-industry">${ind.icon} ${ind.title}</div>
+                    <div class="case-desc">${ind.tagline}</div>
+                    <div class="case-quote">Готовые шаблоны: ${ind.templates.join(', ')}</div>
+                </a>
+            `).join('');
+        })();
+
         // ============================================
         // КОНФИГУРАЦИЯ - ЗАМЕНИ НА СВОИ ЗНАЧЕНИЯ!
         // ============================================
