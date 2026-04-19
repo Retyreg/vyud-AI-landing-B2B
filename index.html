@@ -660,7 +660,7 @@
                     throw new Error(result.error || 'Ошибка сохранения');
                 }
                 
-                ym(106277227, 'reachGoal', 'submit_demo_form');
+                ym(106277227, 'reachGoal', 'submit_demo_form', { industry: formData.industry });
                 showSuccess();
                 
             } catch (error) {
