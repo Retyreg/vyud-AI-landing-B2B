@@ -128,13 +128,50 @@ https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Q1BiHUkIBYZ69
 
 ```
 vyud-AI-landing-B2B/
-├── index.html          # Главная страница с формой
-├── setup_supabase.sql  # SQL для настройки базы данных
-├── privacy.html        # Политика конфиденциальности
-├── offer.pdf           # Публичная оферта
-├── CNAME              # Домен для GitHub Pages
-└── README.md          # Эта документация
+├── index.html                    # Главная страница (4 вертикали)
+├── _industry_template.html       # Шаблон для отдельных отраслевых лендингов
+├── images/screenshots/           # Скриншоты TMA (step-1..4.png, см. README внутри)
+├── setup_supabase.sql            # SQL для настройки базы данных
+├── privacy.html                  # Политика конфиденциальности
+├── offer.pdf                     # Публичная оферта
+├── CNAME                         # Домен для GitHub Pages
+└── README.md                     # Эта документация
 ```
+
+---
+
+## 🏭 Отраслевая архитектура
+
+Лендинг построен с учётом будущего разделения по отраслям:
+
+- `index.html` — общий лендинг с 4 вертикалями (HoReCa / Отели / Ритейл / FMCG)
+- `_industry_template.html` — шаблон для отдельных отраслевых страниц
+- `INDUSTRIES` в JS (`index.html`) — единый источник отраслевого контента
+
+**Когда выделять отдельный лендинг:**
+1. Смотри Яндекс.Метрику → цели `click_industry_*` и `submit_demo_form` с параметром `industry`
+2. Когда один сегмент даёт ≥40% лидов — копируй шаблон, заполняй плейсхолдеры
+3. Деплой как `horeca.html` / `hotels.html` / `retail.html` / `fmcg.html`
+
+```bash
+# Пример: создать лендинг для HoReCa
+cp _industry_template.html horeca.html
+# Заполни все {{PLACEHOLDER}} — их список в комментарии в начале файла
+git add horeca.html && git commit -m "feat(landing): add HoReCa industry page"
+git push origin main
+```
+
+**Плейсхолдеры в шаблоне:**
+
+| Плейсхолдер | Пример |
+|---|---|
+| `{{INDUSTRY_KEY}}` | `horeca` |
+| `{{INDUSTRY_NAME}}` | `Кофейни и рестораны` |
+| `{{INDUSTRY_ICON}}` | `🍽️` |
+| `{{INDUSTRY_TAGLINE}}` | `Официант знает стандарт приветствия за первую смену` |
+| `{{INDUSTRY_H1}}` | `PDF с регламентом → бариста прошёл квиз` |
+| `{{INDUSTRY_SUBHEAD}}` | `Подзаголовок под отрасль` |
+| `{{INDUSTRY_TEMPLATES}}` | `приветствие гостя, принятие заказа, ...` |
 
 ---
 
